@@ -1,0 +1,517 @@
+% !TEX encoding = UTF-8 Unicode
+% LaTeX Curriculum Vitae Template
+%
+% Copyright (C) 2004-2009 Jason Blevins <jrblevin@sdf.lonestar.org>
+% http://jblevins.org/projects/cv-template/
+%
+% You may use use this document as a template to create your own CV
+% and you may redistribute the source code freely. No attribution is
+% required in any resulting documents. I do ask that you please leave
+% this notice and the above URL in the source code if you choose to
+% redistribute this file.
+
+\documentclass{article}
+\usepackage[italian,ngerman,english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{hyphenat}
+\usepackage{geometry}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage{soul}
+\usepackage{eurosym}
+
+
+%\usepackage{bib}
+% Comment the following lines to use the default Computer Modern font
+% instead of the Palatino font provided by the mathpazo package.
+% Remove the 'osf' bit if you don't like the old style figures.
+%\usepackage[T1]{fontenc}
+%\usepackage[sc,osf]{mathpazo}
+
+\newcommand{\scare}{\enquote*}
+
+\usepackage[
+    backend=biber,
+     style=chicago-notes,
+     sorting=ymdnt,
+       natbib=true,
+      style=publist,
+   labelnumber=false,
+   bibencoding=utf8,
+  url=false,
+		doi=true,
+		eprint=true,
+		isbn=true,
+		boldyear=true,
+		defernumbers=false,
+		]{biblatex}
+
+
+\plauthorname[Marco]{Giovanelli}
+
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}\unspace}
+  }
+
+
+\DeclareSortingScheme{ymdnt}{
+        \sort{
+                \field{presort}
+        }
+        \sort[final]{
+                \field{sortkey}
+        }
+        \sort[direction=descending]{ % Change if descending desired
+                \field{sortyear}
+                \field{year}
+        }
+        \sort[direction=descending]{
+                \field[padside=left,padwidth=2,padchar=0]{month}
+                \literal{00}
+        }
+        \sort[direction=desceding]{
+                \field[padside=left,padwidth=2,padchar=0]{day}
+                \literal{00}
+        }
+        \sort{
+                \name{sortname}
+                \name{author}
+                \name{editor}
+                \name{translator}
+                \field{sorttitle}
+                \field{title}
+        }
+        \sort{
+                \field{sorttitle}
+        }
+        \sort{
+                \field[padside=left,padwidth=4,padchar=0]{volume}
+                \literal{0000}
+        }
+}
+
+\DeclareFieldFormat{labelnumberwidth}{#1--}
+
+\omitname[Marco]{Giovanelli}
+
+\AtEveryBibitem{
+  \clearfield{labelmonth}
+  \clearfield{author}
+  \clearfield{series}
+  \clearfield{labelday}
+  \clearlist{language}
+}
+
+
+\begin{filecontents}{strings.bib}
+
+@String{ EJPS = {European Journal for Philosophy of Science} }
+@String{HOPOS    = {{HOPOS}: {The Journal of the International Society for the History of Philosophy of Science}}}
+@String{it       = {italian}}
+@String{JGPS     = {Journal for General Philosophy of Science/Zeit\-schrift f?r All\-ge\-mei\-ne Wis\-sen\-schafts\-theo\-rie}}
+@String{jhup     = {Johns Hopkins University Press}}
+@String{KNAW     = {Koninklijke Akademie van Wetenschappen te Amsterdam}}
+@String{KS       = {Kant-Studien}}
+@String{M        = {The {Monist}}}
+@String{mit      = {{MIT Press}}}
+@String{MPK      = {Ma\-the\-ma\-tisch\hyp{}phy\-si\-ka\-li\-sche Klas\-se}}
+@String{N        = {Die Na\-tur\-wis\-sen\-schaf\-ten}}
+@String{NC    = {{Il Nuovo Cimento}}}
+@String{NKGWG    = {Nach\-rich\-ten von der K?\-nig\-li\-chen Ge\-sell\-schaft der Wis\-sen\-schaf\-ten zu G?t\-tin\-gen}}
+@String{oup      = {Oxford University Press}}
+@String{PMK      = {Phy\-si\-ka\-li\-sch\hyp{}ma\-the\-ma\-tische Klas\-se}}
+@String{PR    = {Physical Review}}
+@String{PRL   = {Physical Review Letters}}
+@String{PSA      = {{PSA}: {Proceedings of the Biennial Meeting of the Philosophy of Science Association}}}
+@String{PZ       = {Phy\-si\-ka\-li\-sche Zeit\-schrift}}
+@String{RMM      = {Revue de m\'{e}taphysique et de morale}}
+@String{RMP   = {Reviews of Modern Physics}}
+@String{rout     = {Routledge}}
+@String{RPFE     = {Revue philosophique de la France et de l'\'{e}tranger}}
+@String{SBKPAW   = {Sit\-zungs\-be\-rich\-te der K?niglich Preu{\ss}ischen Akademie der Wissenschaften}}
+@String{SBPAW    = {Sit\-zungs\-be\-rich\-te der Preu{\ss}ischen Akademie der Wissenschaften}}
+@String{SHPMP    = {Studies in History and Philosophy of Science. {P}art {B}: {S}tudies in History and Philosophy of Mo\-dern Phy\-sics}}
+@String{SHPS  = {Studies in History and Philosophy of Science}}
+@String{SP  = {spanish}}
+
+@String{ stan = {Stanford University Press} }
+@String{Stanford = {The {Stanford} Encyclopedia of Philosophy}}
+@String{ sup = {Stanford University Press} }
+
+@String{ ucap = {University of California Press} }
+
+@String{ uchp = {University of Chicago Press} }
+@String{VDPG     = {Ver\-hand\-lun\-gen der Deut\-schen Phy\-si\-ka\-li\-schen Ge\-sell\-schaft}}
+@String{VGDNA    = {Ver\-hand\-lun\-gen der Ge\-sell\-schaft Deut\-scher Na\-tur\-for\-scher und ?rz\-te}}
+@String{ZP       = {Zeit\-schrift f?r Phy\-sik}}
+\end{filecontents}
+
+\addbibresource{strings.bib}
+\addbibresource{cvb.bib}
+%\addbibresource{cvbconf.bib}
+
+% Set your name here
+\def\name{Marco Giovanelli}
+
+
+% Replace this with a link to your CV if you like, or set it empty
+% (as in \def\footerlink{}) to remove the link in the footer:
+%\def\footerlink{http://jblevins.org/projects/cv-template/}
+
+% The following metadata will show up in the PDF properties
+\hypersetup{
+  colorlinks = true,
+  urlcolor = blue,
+  pdfauthor = {\name},
+  pdfkeywords = {history of philosophy, philosophy of science, philosophy of physics},
+  pdftitle = {\name: Curriculum Vitae},
+  pdfsubject = {Curriculum Vitae},
+  pdfpagemode = UseNone
+}
+
+\geometry{a4paper,
+  body={6.6in, 8.6in},
+  left=0.7in,
+  top=1.25in,
+  right =0.7in
+}
+
+% Customize page headers
+\pagestyle{myheadings}
+\markright{\name}
+\thispagestyle{empty}
+
+% Custom section fonts
+\usepackage{sectsty}
+\sectionfont{\rmfamily\mdseries\Large}
+\subsectionfont{\rmfamily\mdseries\itshape\large}
+
+\DeclareSortingScheme{nymt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{sortyear}
+    \field{year}
+  }
+  \sort{
+    \field{month}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field[padside=left,padwidth=4,padchar=0]{volume}
+    \literal{0000}
+  }
+}
+% Don't indent paragraphs.
+\setlength\parindent{0em}
+
+% Make lists without bullets
+\renewenvironment{itemize}{
+  \begin{list}{}{
+    \setlength{\leftmargin}{1.5em}
+  }
+}{
+  \end{list}
+}
+
+\begin{document}
+
+% Place name at left
+{\huge \name\small \\ Associate Professor in History of Philosophy}
+
+% Alternatively, print name centered and bold:
+%\centerline{\huge \bf \name}
+
+\vspace{0.25in}
+%\ul{Work Address:}\\\vspace{-8pt}\\
+%\begin{minipage}{0.45\linewidth}
+% University of T\"ubingen \\
+%   \href{http://www.forum-scientiarum.uni-tuebingen.de}{Forum Scientiarum} \\ Doblerstra{\ss}e 33 \\ 72074 T\"ubingen, Germany
+%\end{minipage}
+%\begin{minipage}{0.45\linewidth}
+%  \begin{tabular}{ll}
+%    Phone: & ++49-(0)7071-40716-0 \\
+%    Fax: &  ++49-(0)7071-40716-20  \\
+%    Email: & \href{mailto:marco.giovanelli@uni-tuebingen.de}{\tt marco.giovanelli@uni-tuebingen.de} \\
+%    University Homepage: & \href{http://www.uni-tuebingen.de/index.php?id=57282}{\tt www.uni-tuebingen.de} \\
+%    Personal Homepage: & \href{http://marco-giovanelli.com}{\tt marco-giovanelli.com} \\
+%  \end{tabular}
+%\end{minipage}
+
+
+\begin{minipage}{0.45\linewidth}
+ Università di Torino\\
+ Dep. of Philosophy and Educational Sciences\\
+  Via S.\ Ottavio 20,\\ 
+    10124 Torino (Italy)
+   
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+  \begin{tabular}{ll}
+%    Phone: & +39-011-670-3340\\
+%    Fax: &  +39-011-670-3233 \\
+    Email: & \href{mailto:marco.giovanelli@unito.it}{\tt marco.giovanelli@unito.it} \\ ORCID:  & \href{https://orcid.org/0000-0003-1342-6476}{0000-0003-1342-6476}\\
+    University Homepage: & \href{https://www.unito.it/persone/marco.giovanelli}{\tt https://www.unito.it} \\ Personal Homepage: & \href{http://marco-giovanelli.com}{\tt marco-giovanelli.com} \\
+  \end{tabular}
+\end{minipage}
+
+
+
+
+
+%\vspace{0.5cm}\\
+%\ul{Private Address:}\\\vspace{-8pt}\\
+%\begin{minipage}{0.45\linewidth}
+% Nonnengasse 6 \\
+% 72070 - T\"ubingen, Germany
+%\end{minipage}
+%\begin{minipage}{0.45\linewidth}
+%  \begin{tabular}{ll}
+%    Phone: & ++49-(0)7071-522766 \\
+%    Mobile: &  ++49-(0)17647297847 \\
+%     \end{tabular}
+%\end{minipage}
+
+
+
+%\begin{minipage}{0.45\linewidth}
+% Marco Giovanelli\\
+%\href{http://www.einstein.caltech.edu}{\tt Einstein Paper Project}\\
+%Caltech M/C 20-7\\
+%1200 East California Blvd.\\
+%Pasadena, CA 91125, USA
+%\end{minipage}
+%\begin{minipage}{0.45\linewidth}
+%  \begin{tabular}{ll}
+%
+%    Phone: & +1-626-395-8044 \\
+%    Fax: &  +1-626-449-0814  \\
+%    Email: & \href{mailto:mgiovane@caletch.edu}{\tt mgiovane@caletch.edu} \\
+%    Homepage: & \href{http://www.uni-tuebingen.de/fakultaeten/philosophische-fakultaet/fachbereiche/philosophie-rhetorik-medien/philosophisches-seminar/mitarbeiter/dr-marco-giovanelli.html}{\tt homepages.uni-tuebingen.de/marco.giovanelli} \\
+%  \end{tabular}
+%\end{minipage}
+
+
+
+\vspace{0.25in}
+
+\section*{Education and Academic Career}
+
+\begin{itemize}
+\item 2023~Italian Full Professor Habilitation~--~\href{https://asn21.cineca.it/pubblico/miur/esito-abilitato/11\%252FC5/1/6}{11/C5} (History of Philosophy) 
+\item 2022:~Italian Full Professor Habilitation~--~\href{https://asn21.cineca.it/pubblico/miur/esito-abilitato/11\%252FC2/1/3}{11/C2} (Logic, History and Philosophy of Science) 
+\item 2020--:~Associate Professor -- University of Turin
+\item 2018: German Full Professor Habilitation at the University of T\"ubingen
+\subitem Habilitation Thesis: \emph{`What is Truth?'. Einstein on Rods and Clocks in Relativity Theory}
+\item 2017--2019: University of T\"ubingen - DFG-Research Fellow (Eigene Stelle) - \href{http://gepris.dfg.de/gepris/projekt/218862409}{GI945/1-2}
+\item 2015--: contributing editor-Einstein Paper Project, California Institute of Technology, Pasadena, CA
+\subitem 2015--2016 in Pasadena (Interruption of the DFG Project), currently external collaboration.
+\item 2014: Italian Associate Professor Habilitation -\href{https://abilitazione.cineca.it/ministero.php/public/esitoAbilitati/settore/11\%252FC5/fascia/2}{11/C5 } (History of Philosophy)
+\item 2012--2017: University of T\"ubingen - DFG-Research Fellow (Eigene Stelle) - \href{http://gepris.dfg.de/gepris/projekt/218862409}{GI945/1-1}
+\item 2012: University of T\"ubingen (Interim Assistant Position)
+\item 2010--2012: University of T\"ubingen (PostDoc Grant - University of Turin/Piedmont Region)
+\item 2007--2009: University of Turin (PostDoc Grant - University of Turin/Piedmont Region)
+\item 2006: Post-Doc Grant - Universit\"{a}t T\"ubingen (DAAD)
+\item 2001--2005: University of Zurich \subitem Dissertation: \emph{Realt\`a e Negazione. Il principio kantiano delle Anticipazioni della Percezione nella storia delle sue interpretazioni} (Prof. Helmut Holzhey) \subitem Final grade: Summa cum laude
+\item 1994--1999: University of Turin (M.A., Philosophy) \subitem Master-thesis: \emph{August Stadler interprete di Kant} (Prof. Andrea Poma) \subitem Final grade: 110/110 cum laude
+
+ \end{itemize}
+
+
+\section*{Other Grants and Fellowships}
+
+\begin{itemize}
+\item 2017: Senior Visiting Fellow (Edelstein Center - University of Jerusalem)
+\item 2016: Senior Visiting Fellow (Munich Center for Mathematical Philosophy, LMU)
+\item 2015--2016: Contributing Editor Einstein Paper Project, Caltech (local residence)
+\item 2013--14: Visiting Fellow (Center for Philosophy of Science, University of Pittsburgh)
+\item 2010--11: Visiting Fellow (John J. Reilly Center, University of Notre Dame)
+\item 2006: German Academic Exchange Service (DAAD) Grant (University of T\"ubingen)
+\item 2001--2002: Research Grant (University of Zurich - Italian Ministry of Foreign Affairs)
+\item 1998--1999: Erasmus Exchange Program (University of Bremen)
+\end{itemize}
+
+
+\section*{External Funding Received}
+
+\begin{itemize}
+\item 2023--2024 PRIN: 20224HXFLY \euro{77.600} - \href{https://www.mur.gov.it/sites/default/files/2023-06/Decreto\%20Direttoriale\%20n.\%20901\%20SH4_AllegatoA.pdf}{https://www.mur.gov.it}
+\item 2017-2019: DFG Fellowship (Eigene Stelle) - \href{http://gepris.dfg.de/gepris/projekt/218862409}{GI945/1-2} \euro{506.000}
+\item 2012-2016: DFG Fellowship (Eigene Stelle) - \href{http://gepris.dfg.de/gepris/projekt/218862409}{GI945/1-1} \euro{224.000}
+\item 2007-2012: 2 Post-Doc Positions 50\% co-fin.\ by the Piedmont Region (Italy) (\href{http://arianna.consiglioregionale.piemonte.it/base/coord/c2006004.html}{L.R. n. 4/ 2006 art.}) \euro{88.000}
+
+\end{itemize}
+
+
+%\section*{Extra-academic Experience}
+%
+%\begin{itemize}
+%\item 2000--2001 Editor with the publisher \href{http://www.utet.it/}{UTET} (Turin, Italy)
+%
+%\item 2005--2007 Editor with the publisher \href{http://www.utet.it/}{UTET} (Turin, Italy), responsible for XML and Database management
+%
+%
+%\end{itemize}
+
+%\section*{Awards and Honors}
+%
+%\begin{itemize}
+%\item 2001 Domenica Borello Prize for best philosophical writing
+%
+%\end{itemize}
+
+ \section*{Service to the Profession and the Community}
+
+\begin{itemize}
+\item Reviewer for \emph{British Journal for the History of Philosophy}, \emph{British Journal for the {Philosohy} of Science}, \emph{Synthese}, \emph{European Journal for Philosophy of Science}, \emph{Oxford University Press}, \emph{Journal for General Philosophy of Science}, \emph{Studies in the History and Philosophy of Science}, \emph{Philosophy of Science}, \emph{{HOPOS}: {The Journal of the International Society for the History of Philosophy of Science}}
+\item Organization of an HPS summer school at the University of T\"ubingen, Forum Scientiarum, now in its sixth year. Invited lecturers: Don Howard (2012), Robert DiSalle (2013), Michel Janssen, with J\"urgen Renn (2014); John Norton, with Stephan Hartmann  (2015); Guido Bacciagaluppi, with Chris Fuchs (2016); Harvey Brown, with Dennis Lehmkuhl (2017); Thomas Ryckman with Jerome Van Dongen (2018)
+\end{itemize}
+
+
+\section*{Languages}
+
+\begin{itemize}
+
+\item Italian (native speaker); English, German (fluent); French (reading), Latin and ancient Greek (reading)
+
+\end{itemize}
+
+
+
+
+\section*{References}
+
+\begin{itemize}
+%\item Massimo Ferrari (University of Turin); \href{mailto:massimo.ferrari@unito.it}{massimo.ferrari@unito.it}
+\item Diana L. Kormos-Buchwald (California Institute of Technology); \href{mailto:diana\_buchwald@caltech.edu}{diana\_buchwald@caltech.edu}
+\item Michael Heidelberger (University of T\"ubingen); \href{mailto:michael.heidelberger@uni-tuebingen.de}{michael.heidelberger@uni-tuebingen.de }
+\item Don Howard (University of Notre Dame); \href{mailto:dhoward1@nd.edu}{dhoward1@nd.edu}
+\item John Norton (University of Pittsburg); \href{mailto:jdnorton@pitt.edu }{jdnorton@pitt.edu }
+\item Thomas A. Ryckman (Stanford University); \href{mailto:tryckman@stanford.edu}{tryckman@stanford.edu}
+\end{itemize}
+
+
+%\section*{Teaching in German}
+%%
+%\begin{itemize}
+%\item Wintersemester 2010/2011
+%\subitem "Der Symmetriebegriff in der Physik" (HS)
+%
+%\item Sommersemester 2011
+%
+%\subitem Kants Prolegomena  (PS)
+%\subitem Philosophie und Geometrie im 19. Jahrhundert (HS)
+%
+%\item Wintersemester 2011/2012
+%\subitem Raum und Zeit. Philosophische Interpretationen der "Relativitätstheorie" (HS)
+%
+%\item Sommersemester 2012
+% \subitem Einführung in die Leibnizsche Philosophie (HS)
+%\subitem Kants Prolegomena (HS)
+%
+%\item Sommersemester 2013
+%\subitem Henri Poincar\'es als Wissenschaftsphilosoph  (HS)
+%\subitem Ernst Cassirer als Wissenschaftsphilosoph (HS)
+%
+%\item Sommersemester 2016
+%das Proseminar \subitem Einführung in Descartes' Philosophie  (PS)
+%das Hauptseminar \subitem Philosophie des Raumes und der Zeit (HS)
+%
+%\item Wintersemester 2017/2018
+%\subitem Grundprobleme der Wissenschaftsphilosophie (PS)
+%\subitem Einstein als Wissenschaftsphilosoph". (HS)
+%%\item 2011/12 WS Philosophie und Geometrie im 19. Jahrhundert (Hauptseminar)
+%%\item 2009 SoSe Der Symmetriebegriff in der Philosophie und in der Physik (Hauptseminar)
+%\end{itemize}
+
+%\section*{Peer Revier}
+%
+%British Journal for the History of Philosophy, Synthese, European Journal for Philosophy of Science, Oxford University Press, Journal for General Philosophy of Science
+\pagebreak
+\setcounter{page}{1}
+%\section{Publications}
+
+\nocite{*}
+
+%\part*{Publications}
+                   
+\section*{Refereed Papers}
+\printbibliography[heading=subbibliography,
+                   title={Submitted},
+                   keyword=s,
+                   filter=mine]
+
+\printbibliography[heading=subbibliography,
+                   title={Forthcoming},
+                   keyword=f]
+
+
+\printbibliography[heading=subbibliography,
+                   title={Published},
+                   keyword=pra]
+
+
+\section*{Books}
+\printbibliography[heading=subbibliography,
+                   title={Authored Books},
+                   type=book]
+
+\printbibliography[heading=subbibliography,
+                   title={Edited Books},
+                   type=collection
+               ]
+
+%\section*{Other Publications}
+\printbibliography[heading=bibliography,
+                   title={Other Publications}, keyword=o]
+
+%%\section*{Recent Talks}
+%
+%%\printbibliography[heading=subbibliography,
+%                   title={Recent Invited Talks},
+%                   keyword=t]
+%
+%%\printbibliography[heading=subbibliography,
+%                   title={Recent Contributed Talks (Peer Reviewed)},
+%                   keyword=ot]
+
+
+
+
+
+%\printbibliography[heading=subbibliography,
+%                   title={Peer reviewed articles},
+%                   keyword=forth]
+
+
+
+
+\bigskip
+
+% Footer
+\begin{center}
+  \begin{footnotesize}
+    Last updated: \today
+  \end{footnotesize}
+\end{center}
+\enlargethispage{1cm}
+\end{document}
